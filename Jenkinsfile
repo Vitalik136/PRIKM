@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Start') {
             steps {
-                echo 'Lab_2: started by GitHub Webhook'
+                echo 'Lab_3: started by GitHub'
             }
         }
 
@@ -18,7 +18,7 @@ pipeline {
                 failure {
                     script {
                         // Send Telegram notification on success
-                        telegramSend message: "Job Name: ${env.JOB_NAME}\nBranch: ${env.GIT_BRANCH}\nBuild #${env.BUILD_NUMBER}: ${currentBuild.currentResult}\nFailure stage: '${env.STAGE_NAME}'"
+                        telegramSend message: "Job Name: ${env.JOB_NAME}\nBuild #${env.BUILD_NUMBER} with branch '${env.GIT_BRANCH}' is ${currentBuild.currentResult}\nFailure stage: '${env.STAGE_NAME}'"
                     }
                 }
             }
@@ -36,7 +36,7 @@ pipeline {
                 failure {
                     script {
                         // Send Telegram notification on success
-                        telegramSend message: "Job Name: ${env.JOB_NAME}\nBranch: ${env.GIT_BRANCH}\nBuild #${env.BUILD_NUMBER}: ${currentBuild.currentResult}\nFailure stage: '${env.STAGE_NAME}'"
+                        telegramSend message: "Job Name: ${env.JOB_NAME}\nBuild #${env.BUILD_NUMBER} with branch '${env.GIT_BRANCH}' is ${currentBuild.currentResult}\nFailure stage: '${env.STAGE_NAME}'"
                     }
                 }
             }
@@ -53,7 +53,7 @@ pipeline {
                 failure {
                     script {
                         // Send Telegram notification on success
-                        telegramSend message: "Job Name: ${env.JOB_NAME}\nBranch: ${env.GIT_BRANCH}\nBuild #${env.BUILD_NUMBER}: ${currentBuild.currentResult}\nFailure stage: '${env.STAGE_NAME}'"
+                        telegramSend message: "Job Name: ${env.JOB_NAME}\nBuild #${env.BUILD_NUMBER} with branch '${env.GIT_BRANCH}' is ${currentBuild.currentResult}\nFailure stage: '${env.STAGE_NAME}'"
                     }
                 }
             }
@@ -63,7 +63,7 @@ pipeline {
         success{
             script{
                 // Send Telegram notification on success
-                telegramSend message: "Job Name: ${env.JOB_NAME}\n Branch: ${env.GIT_BRANCH}\nBuild #${env.BUILD_NUMBER}: ${currentBuild.currentResult}"
+                telegramSend message: "Job Name: ${env.JOB_NAME}\nBuild #${env.BUILD_NUMBER} with branch '${env.GIT_BRANCH}' is ${currentBuild.currentResult}"
             }
         }
     }
