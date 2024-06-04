@@ -2,7 +2,6 @@ import jenkins.model.*
 
 def instance = Jenkins.getInstance()
 def job = instance.getItem('Lab_7')
-git add .
 if (job) {
     println("Triggering job: ${job.name}")
     instance.queue.schedule(job, 0)
